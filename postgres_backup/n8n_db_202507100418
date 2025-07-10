@@ -1,0 +1,569 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.13 (Homebrew)
+-- Dumped by pg_dump version 17.4
+
+-- Started on 2025-07-10 04:19:31 CST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4069 (class 0 OID 25357)
+-- Dependencies: 250
+-- Data for Name: annotation_tag_entity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.annotation_tag_entity (id, name, "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4054 (class 0 OID 24884)
+-- Dependencies: 235
+-- Data for Name: auth_identity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.auth_identity ("userId", "providerId", "providerType", "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4056 (class 0 OID 24897)
+-- Dependencies: 237
+-- Data for Name: auth_provider_sync_history; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.auth_provider_sync_history (id, "providerType", "runMode", status, "startedAt", "endedAt", scanned, created, updated, disabled, error) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4041 (class 0 OID 24600)
+-- Dependencies: 222
+-- Data for Name: credentials_entity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.credentials_entity (name, data, type, "createdAt", "updatedAt", id, "isManaged") FROM stdin;
+Gmail account	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	gmailOAuth2	2025-06-04 15:45:07.887-06	2025-06-04 17:30:14.507-06	izDVVOrHZrflYtrH	f
+\.
+
+
+--
+-- TOC entry 4053 (class 0 OID 24853)
+-- Dependencies: 234
+-- Data for Name: event_destinations; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.event_destinations (id, destination, "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4070 (class 0 OID 25365)
+-- Dependencies: 251
+-- Data for Name: execution_annotation_tags; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.execution_annotation_tags ("annotationId", "tagId") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4068 (class 0 OID 25341)
+-- Dependencies: 249
+-- Data for Name: execution_annotations; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.execution_annotations (id, "executionId", vote, note, "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4058 (class 0 OID 24992)
+-- Dependencies: 239
+-- Data for Name: execution_data; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.execution_data ("executionId", "workflowData", data) FROM stdin;
+1	{"id":"O4grqdLqrw7i0QWF","name":"PrimerFlujo","active":false,"nodes":[{"parameters":{"notice":""},"type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"id":"9ca08230-6b36-44df-9b83-2d956da56f00","name":"When clicking ‘Execute workflow’"},{"parameters":{"pollTimes":{"item":[{"mode":"everyDay","hour":6,"minute":0},{"mode":"everyDay","hour":17,"minute":0}]},"authentication":"oAuth2","event":"messageReceived","simple":true,"filters":{}},"type":"n8n-nodes-base.gmailTrigger","typeVersion":1.2,"position":[120,120],"id":"6234c6de-bbce-4a25-afd9-96d85c950b34","name":"Gmail Trigger","credentials":{"gmailOAuth2":{"id":"izDVVOrHZrflYtrH","name":"Gmail account"}}}],"connections":{},"settings":{"executionOrder":"v1"},"pinData":{}}	[{"startData":"1","resultData":"2","executionData":"3"},{"destinationNode":"4","runNodeFilter":"5"},{"runData":"6","pinData":"7"},{"contextData":"8","nodeExecutionStack":"9","metadata":"10","waitingExecution":"11","waitingExecutionSource":"12"},"Gmail Trigger",["4"],{},{},{},[],{},{},{}]
+2	{"id":"O4grqdLqrw7i0QWF","name":"PrimerFlujo","active":false,"nodes":[{"parameters":{"notice":""},"type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"id":"9ca08230-6b36-44df-9b83-2d956da56f00","name":"When clicking ‘Execute workflow’"},{"parameters":{"pollTimes":{"item":[{"mode":"everyDay","hour":6,"minute":0},{"mode":"everyDay","hour":17,"minute":0}]},"authentication":"oAuth2","event":"messageReceived","simple":true,"filters":{}},"type":"n8n-nodes-base.gmailTrigger","typeVersion":1.2,"position":[120,120],"id":"6234c6de-bbce-4a25-afd9-96d85c950b34","name":"Gmail Trigger","notesInFlow":true,"credentials":{"gmailOAuth2":{"id":"izDVVOrHZrflYtrH","name":"Gmail account"}}}],"connections":{},"settings":{"executionOrder":"v1"},"pinData":{}}	[{"startData":"1","resultData":"2","executionData":"3"},{"destinationNode":"4","runNodeFilter":"5"},{"runData":"6","pinData":"7"},{"contextData":"8","nodeExecutionStack":"9","metadata":"10","waitingExecution":"11","waitingExecutionSource":"12"},"Gmail Trigger",["4"],{},{},{},[],{},{},{}]
+3	{"id":"O4grqdLqrw7i0QWF","name":"PrimerFlujo","active":false,"nodes":[{"parameters":{"pollTimes":{"item":[{"mode":"everyDay","hour":6,"minute":0},{"mode":"everyDay","hour":17,"minute":0}]},"authentication":"oAuth2","event":"messageReceived","simple":true,"filters":{}},"type":"n8n-nodes-base.gmailTrigger","typeVersion":1.2,"position":[-160,0],"id":"6234c6de-bbce-4a25-afd9-96d85c950b34","name":"Gmail Trigger","notesInFlow":true,"credentials":{"gmailOAuth2":{"id":"izDVVOrHZrflYtrH","name":"Gmail account"}}},{"parameters":{"authentication":"oAuth2","resource":"message","operation":"get","messageId":"","simple":true},"type":"n8n-nodes-base.gmail","typeVersion":2.1,"position":[60,0],"id":"ec5d2c81-65af-4f6e-88ea-48446657e07b","name":"Gmail","webhookId":"ceca8a2f-48b3-4e06-9d0e-e17b8668408d","notesInFlow":true,"credentials":{"gmailOAuth2":{"id":"izDVVOrHZrflYtrH","name":"Gmail account"}}}],"connections":{"Gmail Trigger":{"main":[[{"node":"Gmail","type":"main","index":0}]]}},"settings":{"executionOrder":"v1"},"pinData":{}}	[{"resultData":"1"},{"error":"2","runData":"3"},{"level":"4","tags":"5","context":"6","functionality":"7","name":"8","timestamp":1749077054963,"message":"9","stack":"10"},{},"warning",{},{},"regular","WorkflowHasIssuesError","The workflow has issues and cannot be executed for that reason. Please fix them first.","WorkflowHasIssuesError: The workflow has issues and cannot be executed for that reason. Please fix them first.\\n    at WorkflowExecute.processRunExecutionData (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1330:10)\\n    at WorkflowExecute.runPartialWorkflow2 (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@4.78.1_encoding@0.1.13_zod@3.24.1_/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:471:15)\\n    at ManualExecutionService.runManually (/usr/local/lib/node_modules/n8n/src/manual-execution.service.ts:171:28)\\n    at WorkflowRunner.runMainProcess (/usr/local/lib/node_modules/n8n/src/workflow-runner.ts:284:53)\\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\\n    at WorkflowRunner.run (/usr/local/lib/node_modules/n8n/src/workflow-runner.ts:171:4)\\n    at WorkflowExecutionService.executeManually (/usr/local/lib/node_modules/n8n/src/workflows/workflow-execution.service.ts:224:23)\\n    at WorkflowsController.runManually (/usr/local/lib/node_modules/n8n/src/workflows/workflows.controller.ts:469:10)\\n    at handler (/usr/local/lib/node_modules/n8n/src/controller.registry.ts:74:12)\\n    at /usr/local/lib/node_modules/n8n/src/response-helper.ts:157:17"]
+\.
+
+
+--
+-- TOC entry 4043 (class 0 OID 24610)
+-- Dependencies: 224
+-- Data for Name: execution_entity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.execution_entity (id, finished, mode, "retryOf", "retrySuccessId", "startedAt", "stoppedAt", "waitTill", status, "workflowId", "deletedAt", "createdAt") FROM stdin;
+1	t	manual	\N	\N	2025-06-04 16:40:26.959-06	2025-06-04 16:40:26.979-06	\N	success	O4grqdLqrw7i0QWF	\N	2025-06-04 16:40:26.528-06
+2	t	manual	\N	\N	2025-06-04 16:40:43.007-06	2025-06-04 16:40:43.023-06	\N	success	O4grqdLqrw7i0QWF	\N	2025-06-04 16:40:42.993-06
+3	f	manual	\N	\N	2025-06-04 16:44:14.947-06	2025-06-04 16:44:15.042-06	\N	error	O4grqdLqrw7i0QWF	\N	2025-06-04 16:44:14.423-06
+\.
+
+
+--
+-- TOC entry 4065 (class 0 OID 25316)
+-- Dependencies: 246
+-- Data for Name: execution_metadata; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.execution_metadata (id, "executionId", key, value) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4073 (class 0 OID 25509)
+-- Dependencies: 254
+-- Data for Name: folder; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.folder (id, name, "parentFolderId", "projectId", "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4074 (class 0 OID 25527)
+-- Dependencies: 255
+-- Data for Name: folder_tag; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.folder_tag ("folderId", "tagId") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4080 (class 0 OID 25623)
+-- Dependencies: 261
+-- Data for Name: insights_by_period; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.insights_by_period (id, "metaId", type, value, "periodUnit", "periodStart") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4076 (class 0 OID 25594)
+-- Dependencies: 257
+-- Data for Name: insights_metadata; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.insights_metadata ("metaId", "workflowId", "projectId", "workflowName", "projectName") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4078 (class 0 OID 25611)
+-- Dependencies: 259
+-- Data for Name: insights_raw; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.insights_raw (id, "metaId", type, value, "timestamp") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4051 (class 0 OID 24802)
+-- Dependencies: 232
+-- Data for Name: installed_nodes; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.installed_nodes (name, type, "latestVersion", package) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4050 (class 0 OID 24795)
+-- Dependencies: 231
+-- Data for Name: installed_packages; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.installed_packages ("packageName", "installedVersion", "authorName", "authorEmail", "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4066 (class 0 OID 25330)
+-- Dependencies: 247
+-- Data for Name: invalid_auth_token; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.invalid_auth_token (token, "expiresAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4040 (class 0 OID 24591)
+-- Dependencies: 221
+-- Data for Name: migrations; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.migrations (id, "timestamp", name) FROM stdin;
+1	1587669153312	InitialMigration1587669153312
+2	1589476000887	WebhookModel1589476000887
+3	1594828256133	CreateIndexStoppedAt1594828256133
+4	1607431743768	MakeStoppedAtNullable1607431743768
+5	1611144599516	AddWebhookId1611144599516
+6	1617270242566	CreateTagEntity1617270242566
+7	1620824779533	UniqueWorkflowNames1620824779533
+8	1626176912946	AddwaitTill1626176912946
+9	1630419189837	UpdateWorkflowCredentials1630419189837
+10	1644422880309	AddExecutionEntityIndexes1644422880309
+11	1646834195327	IncreaseTypeVarcharLimit1646834195327
+12	1646992772331	CreateUserManagement1646992772331
+13	1648740597343	LowerCaseUserEmail1648740597343
+14	1652254514002	CommunityNodes1652254514002
+15	1652367743993	AddUserSettings1652367743993
+16	1652905585850	AddAPIKeyColumn1652905585850
+17	1654090467022	IntroducePinData1654090467022
+18	1658932090381	AddNodeIds1658932090381
+19	1659902242948	AddJsonKeyPinData1659902242948
+20	1660062385367	CreateCredentialsUserRole1660062385367
+21	1663755770893	CreateWorkflowsEditorRole1663755770893
+22	1664196174001	WorkflowStatistics1664196174001
+23	1665484192212	CreateCredentialUsageTable1665484192212
+24	1665754637025	RemoveCredentialUsageTable1665754637025
+25	1669739707126	AddWorkflowVersionIdColumn1669739707126
+26	1669823906995	AddTriggerCountColumn1669823906995
+27	1671535397530	MessageEventBusDestinations1671535397530
+28	1671726148421	RemoveWorkflowDataLoadedFlag1671726148421
+29	1673268682475	DeleteExecutionsWithWorkflows1673268682475
+30	1674138566000	AddStatusToExecutions1674138566000
+31	1674509946020	CreateLdapEntities1674509946020
+32	1675940580449	PurgeInvalidWorkflowConnections1675940580449
+33	1676996103000	MigrateExecutionStatus1676996103000
+34	1677236854063	UpdateRunningExecutionStatus1677236854063
+35	1677501636754	CreateVariables1677501636754
+36	1679416281778	CreateExecutionMetadataTable1679416281778
+37	1681134145996	AddUserActivatedProperty1681134145996
+38	1681134145997	RemoveSkipOwnerSetup1681134145997
+39	1690000000000	MigrateIntegerKeysToString1690000000000
+40	1690000000020	SeparateExecutionData1690000000020
+41	1690000000030	RemoveResetPasswordColumns1690000000030
+42	1690000000030	AddMfaColumns1690000000030
+43	1690787606731	AddMissingPrimaryKeyOnExecutionData1690787606731
+44	1691088862123	CreateWorkflowNameIndex1691088862123
+45	1692967111175	CreateWorkflowHistoryTable1692967111175
+46	1693491613982	ExecutionSoftDelete1693491613982
+47	1693554410387	DisallowOrphanExecutions1693554410387
+48	1694091729095	MigrateToTimestampTz1694091729095
+49	1695128658538	AddWorkflowMetadata1695128658538
+50	1695829275184	ModifyWorkflowHistoryNodesAndConnections1695829275184
+51	1700571993961	AddGlobalAdminRole1700571993961
+52	1705429061930	DropRoleMapping1705429061930
+53	1711018413374	RemoveFailedExecutionStatus1711018413374
+54	1711390882123	MoveSshKeysToDatabase1711390882123
+55	1712044305787	RemoveNodesAccess1712044305787
+56	1714133768519	CreateProject1714133768519
+57	1714133768521	MakeExecutionStatusNonNullable1714133768521
+58	1717498465931	AddActivatedAtUserSetting1717498465931
+59	1720101653148	AddConstraintToExecutionMetadata1720101653148
+60	1721377157740	FixExecutionMetadataSequence1721377157740
+61	1723627610222	CreateInvalidAuthTokenTable1723627610222
+62	1723796243146	RefactorExecutionIndices1723796243146
+63	1724753530828	CreateAnnotationTables1724753530828
+64	1724951148974	AddApiKeysTable1724951148974
+65	1726606152711	CreateProcessedDataTable1726606152711
+66	1727427440136	SeparateExecutionCreationFromStart1727427440136
+67	1728659839644	AddMissingPrimaryKeyOnAnnotationTagMapping1728659839644
+68	1729607673464	UpdateProcessedDataValueColumnToText1729607673464
+69	1729607673469	AddProjectIcons1729607673469
+70	1730386903556	CreateTestDefinitionTable1730386903556
+71	1731404028106	AddDescriptionToTestDefinition1731404028106
+72	1731582748663	MigrateTestDefinitionKeyToString1731582748663
+73	1732271325258	CreateTestMetricTable1732271325258
+74	1732549866705	CreateTestRun1732549866705
+75	1733133775640	AddMockedNodesColumnToTestDefinition1733133775640
+76	1734479635324	AddManagedColumnToCredentialsTable1734479635324
+77	1736172058779	AddStatsColumnsToTestRun1736172058779
+78	1736947513045	CreateTestCaseExecutionTable1736947513045
+79	1737715421462	AddErrorColumnsToTestRuns1737715421462
+80	1738709609940	CreateFolderTable1738709609940
+81	1739549398681	CreateAnalyticsTables1739549398681
+82	1740445074052	UpdateParentFolderIdColumn1740445074052
+83	1741167584277	RenameAnalyticsToInsights1741167584277
+84	1742918400000	AddScopesColumnToApiKeys1742918400000
+85	1745322634000	ClearEvaluation1745322634000
+86	1745587087521	AddWorkflowStatisticsRootCount1745587087521
+87	1745934666076	AddWorkflowArchivedColumn1745934666076
+88	1745934666077	DropRoleTable1745934666077
+\.
+
+
+--
+-- TOC entry 4072 (class 0 OID 25398)
+-- Dependencies: 253
+-- Data for Name: processed_data; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.processed_data ("workflowId", context, "createdAt", "updatedAt", value) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4060 (class 0 OID 25235)
+-- Dependencies: 241
+-- Data for Name: project; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.project (id, name, type, "createdAt", "updatedAt", icon) FROM stdin;
+UEEPqvcZAUKMBwJ6	Fabio Fernández <fabio.fernandez@datastrategys.com>	personal	2025-06-03 23:09:09.114-06	2025-06-03 23:15:22.932-06	\N
+\.
+
+
+--
+-- TOC entry 4061 (class 0 OID 25242)
+-- Dependencies: 242
+-- Data for Name: project_relation; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.project_relation ("projectId", "userId", role, "createdAt", "updatedAt") FROM stdin;
+UEEPqvcZAUKMBwJ6	dac80f4a-ccfb-404b-a978-a2e460fcb100	project:personalOwner	2025-06-03 23:09:09.114-06	2025-06-03 23:09:09.114-06
+\.
+
+
+--
+-- TOC entry 4049 (class 0 OID 24787)
+-- Dependencies: 230
+-- Data for Name: settings; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.settings (key, value, "loadOnStartup") FROM stdin;
+ui.banners.dismissed	["V1"]	t
+features.ldap	{"loginEnabled":false,"loginLabel":"","connectionUrl":"","allowUnauthorizedCerts":false,"connectionSecurity":"none","connectionPort":389,"baseDn":"","bindingAdminDn":"","bindingAdminPassword":"","firstNameAttribute":"","lastNameAttribute":"","emailAttribute":"","loginIdAttribute":"","ldapIdAttribute":"","userFilter":"","synchronizationEnabled":false,"synchronizationInterval":60,"searchPageSize":0,"searchTimeout":60}	t
+features.sourceControl.sshKeys	{"encryptedPrivateKey":"U2FsdGVkX1+m2K3FkyYqB9n07FUYxTof4X7V4+g1vyW3POf5P8nWQx6aHdxa7HWslOTar+OeC6vwdJ6WGtyebF7sdjBUyjEJafAOduqOpvxk0bf62urL2zjciofJdMWAU/YjNJ6S6oLIbFyjqYvI3DQTrOfXZc7UjTi/4TV4TNkkhTJGS5cB95FuRBZSQY4rLZzR4oYBqADB6W1DeTYlqxI7jV93Wag+E4QVhjqRXp6mnlnl+cU+eGVNaYKV6vFMgyn/9D8lAApIxXETgeB+rGC5MX7odlmPIP58I4Rk46UMa7UPMWefa57ru9z/8W6qgByCaM/s9tS2sCYIF5W7Ry4DCgI2lth+b50a7l3qZgAh/qJl0B1a/lduhcsE9pdaQHghDQbwdQMSLhmCqu4zXAzTydlJ0co93cUzHQzmOwi7c3QuaeMe3t8n6+VSz5d3hLs1YGTmRQwHgB/Ht6onfne9JK2ZgFMGcyH45gGyGgAeBQTnwM1UJ/+wzExgCF8m//Q7p0cVrhFPnyAEYE6p8y3QlUKhwOmUVU5NddZBPb8JWNzEvd8R6OZrxHV3vYMC","publicKey":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPRJoLOeLmAZICsuG4aVlgTdUd3wiqgl8uZ2mxRX/9Nf n8n deploy key"}	t
+features.sourceControl	{"branchName":"main","keyGeneratorType":"ed25519"}	t
+userManagement.isInstanceOwnerSetUp	true	t
+\.
+
+
+--
+-- TOC entry 4062 (class 0 OID 25270)
+-- Dependencies: 243
+-- Data for Name: shared_credentials; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.shared_credentials ("credentialsId", "projectId", role, "createdAt", "updatedAt") FROM stdin;
+izDVVOrHZrflYtrH	UEEPqvcZAUKMBwJ6	credential:owner	2025-06-04 15:45:07.887-06	2025-06-04 15:45:07.887-06
+\.
+
+
+--
+-- TOC entry 4063 (class 0 OID 25296)
+-- Dependencies: 244
+-- Data for Name: shared_workflow; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.shared_workflow ("workflowId", "projectId", role, "createdAt", "updatedAt") FROM stdin;
+BgQjPen7NFI85Hi5	UEEPqvcZAUKMBwJ6	workflow:owner	2025-06-03 23:18:19.973-06	2025-06-03 23:18:19.973-06
+O4grqdLqrw7i0QWF	UEEPqvcZAUKMBwJ6	workflow:owner	2025-06-03 23:40:20.422-06	2025-06-03 23:40:20.422-06
+\.
+
+
+--
+-- TOC entry 4046 (class 0 OID 24638)
+-- Dependencies: 227
+-- Data for Name: tag_entity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.tag_entity (name, "createdAt", "updatedAt", id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4082 (class 0 OID 25650)
+-- Dependencies: 263
+-- Data for Name: test_case_execution; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.test_case_execution (id, "testRunId", "executionId", status, "runAt", "completedAt", "errorCode", "errorDetails", metrics, "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4081 (class 0 OID 25635)
+-- Dependencies: 262
+-- Data for Name: test_run; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.test_run (id, "workflowId", status, "errorCode", "errorDetails", "runAt", "completedAt", metrics, "createdAt", "updatedAt") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4048 (class 0 OID 24724)
+-- Dependencies: 229
+-- Data for Name: user; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema."user" (id, email, "firstName", "lastName", password, "personalizationAnswers", "createdAt", "updatedAt", settings, disabled, "mfaEnabled", "mfaSecret", "mfaRecoveryCodes", role) FROM stdin;
+dac80f4a-ccfb-404b-a978-a2e460fcb100	fabio.fernandez@datastrategys.com	Fabio	Fernández	$2a$10$gRp1zs1QuvUiRYGqqvuNDuN7JX/TaNMg2XQ.z2atpaQSK2ZW.n2Pi	\N	2025-06-03 23:09:06.314-06	2025-06-03 23:15:22.902-06	{"userActivated": false}	f	f	\N	\N	global:owner
+\.
+
+
+--
+-- TOC entry 4071 (class 0 OID 25382)
+-- Dependencies: 252
+-- Data for Name: user_api_keys; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.user_api_keys (id, "userId", label, "apiKey", "createdAt", "updatedAt", scopes) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4057 (class 0 OID 24908)
+-- Dependencies: 238
+-- Data for Name: variables; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.variables (key, type, value, id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4045 (class 0 OID 24628)
+-- Dependencies: 226
+-- Data for Name: webhook_entity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.webhook_entity ("webhookPath", method, node, "webhookId", "pathLength", "workflowId") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4044 (class 0 OID 24620)
+-- Dependencies: 225
+-- Data for Name: workflow_entity; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.workflow_entity (name, active, nodes, connections, "createdAt", "updatedAt", settings, "staticData", "pinData", "versionId", "triggerCount", id, meta, "parentFolderId", "isArchived") FROM stdin;
+My workflow	f	[]	{}	2025-06-03 23:18:19.973-06	2025-06-03 23:18:19.973-06	{"executionOrder":"v1"}	\N	{}	001c2955-ff40-4be0-892a-7f1ac2ab149d	0	BgQjPen7NFI85Hi5	\N	\N	f
+PrimerFlujo	f	[{"parameters":{},"type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"id":"9ca08230-6b36-44df-9b83-2d956da56f00","name":"When clicking ‘Execute workflow’"}]	{}	2025-06-03 23:40:20.422-06	2025-06-03 23:40:20.422-06	{"executionOrder":"v1"}	\N	{}	b5d52265-5845-4b9b-9121-4c95fece0a90	0	O4grqdLqrw7i0QWF	\N	\N	f
+\.
+
+
+--
+-- TOC entry 4059 (class 0 OID 25006)
+-- Dependencies: 240
+-- Data for Name: workflow_history; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.workflow_history ("versionId", "workflowId", authors, "createdAt", "updatedAt", nodes, connections) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4052 (class 0 OID 24823)
+-- Dependencies: 233
+-- Data for Name: workflow_statistics; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.workflow_statistics (count, "latestEvent", name, "workflowId", "rootCount") FROM stdin;
+2	2025-06-04 16:40:43.815-06	manual_success	O4grqdLqrw7i0QWF	0
+1	2025-06-04 16:44:16.217-06	manual_error	O4grqdLqrw7i0QWF	0
+\.
+
+
+--
+-- TOC entry 4047 (class 0 OID 24645)
+-- Dependencies: 228
+-- Data for Name: workflows_tags; Type: TABLE DATA; Schema: n8n_schema; Owner: n8n_user
+--
+
+COPY n8n_schema.workflows_tags ("workflowId", "tagId") FROM stdin;
+\.
+
+
+--
+-- TOC entry 4097 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: auth_provider_sync_history_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.auth_provider_sync_history_id_seq', 1, false);
+
+
+--
+-- TOC entry 4098 (class 0 OID 0)
+-- Dependencies: 248
+-- Name: execution_annotations_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.execution_annotations_id_seq', 1, false);
+
+
+--
+-- TOC entry 4099 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: execution_entity_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.execution_entity_id_seq', 3, true);
+
+
+--
+-- TOC entry 4100 (class 0 OID 0)
+-- Dependencies: 245
+-- Name: execution_metadata_temp_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.execution_metadata_temp_id_seq', 1, false);
+
+
+--
+-- TOC entry 4101 (class 0 OID 0)
+-- Dependencies: 260
+-- Name: insights_by_period_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.insights_by_period_id_seq', 1, false);
+
+
+--
+-- TOC entry 4102 (class 0 OID 0)
+-- Dependencies: 256
+-- Name: insights_metadata_metaId_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema."insights_metadata_metaId_seq"', 1, false);
+
+
+--
+-- TOC entry 4103 (class 0 OID 0)
+-- Dependencies: 258
+-- Name: insights_raw_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.insights_raw_id_seq', 1, false);
+
+
+--
+-- TOC entry 4104 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: n8n_schema; Owner: n8n_user
+--
+
+SELECT pg_catalog.setval('n8n_schema.migrations_id_seq', 88, true);
+
+
+-- Completed on 2025-07-10 04:19:32 CST
+
+--
+-- PostgreSQL database dump complete
+--
+

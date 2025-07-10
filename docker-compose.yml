@@ -5,6 +5,7 @@ services:
     image: docker.n8n.io/n8nio/n8n:latest # Siempre es buena idea fijar una versión en producción
     container_name: n8n_local
     restart: unless-stopped
+    tunnel: true  # este valor debe estar en true, para que la instancia pueda interactuar con internet 
     ports:
       - "127.0.0.1:5678:5678" # Exponer solo en localhost por seguridad inicial
     environment:
@@ -24,8 +25,8 @@ services:
       - N8N_ENCRYPTION_KEY=077be3dce2d7aa423e6a69b7244a6680c3e1f2079b892a37808509f448ddf532 # ¡MUY IMPORTANTE! Genera una y guárdala bien
 
       # --- Opcional: Para deshabilitar telemetría ---
-      - N8N_DIAGNOSTICS_ENABLED=false
-      # - N8N_VERSION_NOTIFICATIONS_ENABLED=false # Para deshabilitar notificaciones de nueva versión
+      - N8N_DIAGNOSTICS_ENABLED=true # Para deshabilitar la telemetría
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=true # Para deshabilitar notificaciones de nueva versión
 
       # --- Opcional: Para escalar n8n (modos 'main', 'webhook', 'worker') ---
       # Para una sola instancia, 'main' es suficiente. Para escalar en K8s se usa más 'queue'.
