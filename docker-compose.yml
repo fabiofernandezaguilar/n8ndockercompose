@@ -12,10 +12,10 @@ services:
       # --- Conexión a PostgreSQL ---
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=host.docker.internal # Docker Desktop especial para referirse al host desde el contenedor
-      - DB_POSTGRESDB_PORT=5432 # Puerto estándar de PostgreSQL
+      - DB_POSTGRESDB_PORT=5433 # Puerto estándar de PostgreSQL
       - DB_POSTGRESDB_DATABASE=n8n_db # Nombre de tu base de datos
       - DB_POSTGRESDB_USER=n8n_user # Usuario de PostgreSQL
-      - DB_POSTGRESDB_PASSWORD=sqls3rv3r # ¡CAMBIAR ESTO!
+      - DB_POSTGRESDB_PASSWORD=Sqls3rv3r # ¡CAMBIAR ESTO!
       - DB_POSTGRESDB_SCHEMA=n8n_schema  # O el schema que hayas creado, ej: n8n_schema
 
       # --- Configuración General n8n ---
