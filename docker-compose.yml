@@ -1,3 +1,4 @@
+#El uso de version esta deprecate
 # version: '3.8'
 
 services:
@@ -5,19 +6,19 @@ services:
     image: docker.n8n.io/n8nio/n8n:latest # Siempre es buena idea fijar una versión en producción
     container_name: n8n_local
     restart: unless-stopped
-    tunnel: true  # este valor debe estar en true, para que la instancia pueda interactuar con internet 
+    #tunnel: true  # este valor debe estar en true, para que la instancia pueda interactuar con internet 
     ports:
       - "127.0.0.1:5678:5678" # Exponer solo en localhost por seguridad inicial
     environment:
       # --- Conexión a PostgreSQL ---
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=host.docker.internal # Docker Desktop especial para referirse al host desde el contenedor
-      - DB_POSTGRESDB_PORT=5433 # Puerto macbookpro
-      #- DB_POSTGRESDB_PORT=5432 # Puerto estándar de PostgreSQL (imac)
+      #- DB_POSTGRESDB_PORT=5433 # Puerto macbookpro
+      - DB_POSTGRESDB_PORT=5432 # Puerto estándar de PostgreSQL (imac)
       - DB_POSTGRESDB_DATABASE=n8n_db # Nombre de tu base de datos
       - DB_POSTGRESDB_USER=n8n_user # Usuario de PostgreSQL
-      #- DB_POSTGRESDB_PASSWORD=sqls3rv3r # credencial IMAC
-      - DB_POSTGRESDB_PASSWORD=Sqls3rv3r # credencial macbookpro
+      - DB_POSTGRESDB_PASSWORD=sqls3rv3r # credencial IMAC
+      #- DB_POSTGRESDB_PASSWORD=Sqls3rv3r # credencial macbookpro
       - DB_POSTGRESDB_SCHEMA=n8n_schema  # O el schema que hayas creado, ej: n8n_schema
 
       # --- Configuración General n8n ---
