@@ -5,6 +5,8 @@ Please find your license key below to unlock selected paid features on your comm
 Your license key
 bec2d8d4-e191-482c-91c0-0bb6a71c4674
 
+8c4eb29d-d989-400c-a36f-d1822f87c5bb
+
 Activate License Key
 
 Getting started and what happens next:

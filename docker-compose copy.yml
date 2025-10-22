@@ -3,20 +3,12 @@
 
 services:
   n8n:
-    build: 
-      context: . # Usa el Dockerfile en el directorio actual
+    image: docker.n8n.io/n8nio/n8n:latest # Siempre es buena idea fijar una versión en producción
     container_name: n8n_local
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:5678:5678"
-    
-
-    #image: docker.n8n.io/n8nio/n8n:latest # Siempre es buena idea fijar una versión en producción
-    #container_name: n8n_local
-    #restart: unless-stopped
     #tunnel: true  # este valor debe estar en true, para que la instancia pueda interactuar con internet 
-    #ports:
-    #  - "127.0.0.1:5678:5678" # Exponer solo en localhost por seguridad inicial
+    ports:
+      - "127.0.0.1:5678:5678" # Exponer solo en localhost por seguridad inicial
     environment:
       # --- Conexión a PostgreSQL ---
       - DB_TYPE=postgresdb
@@ -31,11 +23,8 @@ services:
       - DB_POSTGRESDB_SCHEMA=n8n_schema  # O el schema que hayas creado, ej: n8n_schema
 
       # --- Configuración General n8n ---
-      #- N8N_HOST=localhost
-      - N8N_HOST=yadira-nonextant-fascinatingly.ngrok-free.dev
-      #- WEBHOOK_URL=http://localhost:5678/ # Importante para que los webhooks funcionen
-      - WEBHOOK_URL=https://yadira-nonextant-fascinatingly.ngrok-free.dev/ # URL pública vía ngrok
-      - N8N_PORT=5678
+      - N8N_HOST=localhost
+      - WEBHOOK_URL=http://localhost:5678/ # Importante para que los webhooks funcionen
       - GENERIC_TIMEZONE=America/Mexico_City # Ajusta a tu zona horaria
       - N8N_ENCRYPTION_KEY=077be3dce2d7aa423e6a69b7244a6680c3e1f2079b892a37808509f448ddf532 # ¡MUY IMPORTANTE! Genera una y guárdala bien
 
@@ -56,7 +45,6 @@ services:
       # n8n almacenará aquí archivos de configuración, binarios (si los subes), etc.
       # La base de datos de workflows/ejecuciones estará en PostgreSQL.
       - ~/.n8n_local_data:/home/node/.n8n
-      - ~/.n8n_local_data:/home/node/.python
 
     # --- Límites de Recursos ---
     # Docker Compose v2+ usa la sección 'deploy' para esto, aunque originalmente era para Swarm.

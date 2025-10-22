@@ -1,0 +1,123 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "fields": [
+          {
+            "name": "query",
+            "value": "is:unread"
+          }
+        ],
+        "credentials": {
+          "credentialType": {
+            "id": "YOUR_GMAIL_CREDENTIAL_ID",
+            "name": "YOUR_GMAIL_CREDENTIAL_NAME"
+          }
+        },
+        "operation": "search",
+        "returnAll": true
+      },
+      "id": "gmail-node-1",
+      "name": "Gmail Search",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [
+        200,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "code": "const categorizedEmails = {};\n\nconst emails = $inputJson;\n\nemails.forEach(email => {\n  const subject = email.subject;\n  const category = determineCategory(subject); // Implement your category logic\n  if (!categorizedEmails[category]) {\n    categorizedEmails[category] = [];\n  }\n  categorizedEmails[category].push({\n    subject: subject,\n    from: email.from,\n    snippet: email.snippet,\n    id: email.id\n  });\n});\n\nfunction determineCategory(subject) {\n  // Implement your category logic here based on subject\n  // Example:\n  if (subject.includes('Order')) return 'Orders';\n  if (subject.includes('Invoice')) return 'Invoices';\n  return 'Other';\n}\n\n$outputJson = categorizedEmails;",
+        "mode": "javascript"
+      },
+      "id": "code-node-1",
+      "name": "Categorize Emails",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        400,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "spreadsheetId": "YOUR_GOOGLE_SHEET_ID",
+        "range": "Sheet1!A:D",
+        "action": "append",
+        "values": "{{ $json }}",
+        "credentials": {
+          "credentialType": {
+            "id": "YOUR_GOOGLE_SHEETS_CREDENTIAL_ID",
+            "name": "YOUR_GOOGLE_SHEETS_CREDENTIAL_NAME"
+          }
+        }
+      },
+      "id": "google-sheets-node-1",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        600,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "schedule": "0 0 * * *"
+      },
+      "id": "schedule-node-1",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Gmail Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail Search": {
+      "main": [
+        [
+          {
+            "node": "Categorize Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Categorize Emails": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "UTC",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "errorWorkflow": ""
+  },
+  "name": "Gmail Summarizer",
+  "active": true
+}
